@@ -13,7 +13,6 @@ def init():
 
 
 def main(init_random_numbers):
-
     input_answer = answer_input(init_random_numbers)
     answer_verify = verify(input_answer, init_random_numbers)
     display(answer_verify, init_random_numbers)
@@ -60,3 +59,10 @@ def display(result, init_random_numbers):
 
 
 init()
+
+
+# Your question is
+#   959
+# + 854
+# Please Enter your answer: 1813
+# correct
