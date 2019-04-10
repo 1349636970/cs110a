@@ -9,9 +9,10 @@ def main():
             filename = open("Your_personal_web", 'w')
         except IOError as e:
             print(e)
-        filename.write(html_code(name, description))
-        filename.close()
-        print("success")
+        else:
+            filename.write(html_code(name, description))
+            filename.close()
+            print("success")
     
 
 
