@@ -9,9 +9,18 @@ def main():
         print(e)
     else:
         file_list = file_open.readlines()
-        file_open.close()
         if len(file_list) >= 5:
-            print(file_list[:5])
+            for line in file_list[:5]:
+                print(line,end="")
         else:
-            print(file_open.read())
+            for line in file_list:
+                print(line,end="")
+        file_open.close()
 main()
+
+# Please Enter a filename: steps.txt
+# 374
+# 36
+# 258
+# 306
+# 234
