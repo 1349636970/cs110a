@@ -20,3 +20,7 @@ def vertical_test(two_D_list):
             column_total += elements[x]
         running_total.append(column_total)
     return sum(running_total)
+
+
+def horizontal_test(two_D_list):
+    
