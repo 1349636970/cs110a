@@ -1,14 +1,15 @@
 # File: Ch14.py
 # Description: 
 def main():
-    month_input = input("Enter a year: ")
-    if month_input % 100 == 0:
-        if month_input % 400 == 0:
-            print(month_input,"has 29 day")
-        else:
-            print(month_input,"has 28 day")
-    else:
-        if month_input % 4 == 0:
-            print(month_input,"has 29 day")
-        else:
-            print(month_input,"has 28 day")    
+    weight = float(input("Enter your package weight: "))
+    if weight > 10:
+        rate = 4.75
+    elif weight > 6:
+        rate = 4.00
+    elif weight > 2:
+        rate = 3.00
+    elif weight > 0:
+        rate = 1.50
+    charges = weight * rate
+    print(charges)
+main()
