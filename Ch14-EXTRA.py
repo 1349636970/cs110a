@@ -128,8 +128,9 @@ def check_horizontal(board):
         for column in range(1,len(row)):
             if " " not in row and row[column-1] == row[column]:
                 count += 1
-        if count == len(row):
+        if count == len(row)-1:
             winner = row[0]
+        count = 0
 
     return winner
 
