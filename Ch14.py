@@ -1,15 +1,14 @@
-# File: Ch14.py
-# Description: 
 def main():
-    weight = float(input("Enter your package weight: "))
-    if weight > 10:
-        rate = 4.75
-    elif weight > 6:
-        rate = 4.00
-    elif weight > 2:
-        rate = 3.00
-    elif weight > 0:
-        rate = 1.50
-    charges = weight * rate
-    print(charges)
+    file_input = open("test",'r')
+    file_list = []
+    running_total = 0
+    count = 1
+    third_number_total = 0
+    for line in file_input:
+        if (count) % 3 == 0:
+            running_total += int(line.rstrip('\n'))
+            third_number_total += 1
+            print(running_total)
+        count += 1
+    print("hello world")
 main()
