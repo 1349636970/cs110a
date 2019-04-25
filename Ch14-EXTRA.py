@@ -82,9 +82,9 @@ def check_variable_type(string):
             else:
                 print("Please Enter a integer number")
         else:
-            if temp_string < 0 or temp_string > 3:
+            if temp_string < 0 or temp_string >= 3:
                 temp_string = None
-                print("Number should between 0 and 3")
+                print("Number should between 0 and 2")
     return temp_string
 
 def is_exit(arg):
