@@ -1,3 +1,6 @@
+# File: Ch14-EXTRA.py
+# Description: Here is Tic Tac Toe game. It will allow for a full game of Tic Tac Toe between two players, and it will tell you who won or if the game is over with no winner.
+
 import sys
 #    Starting point for Extra Credit
 #    Tic Tac Toe game program
@@ -182,3 +185,71 @@ def main():
 
 
 main()
+
+
+#  | | 
+# ------
+#  | | 
+# ------
+#  | | 
+# It is now X's turn.
+# Please enter your move in row and column.
+# So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.
+# Type !q to exit the program
+# Enter row: 0
+# Enter column: 0
+# This place is already occupied.
+# X| | 
+# ------
+#  | | 
+# ------
+#  | | 
+# It is now O's turn.
+# Please enter your move in row and column.
+# So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.
+# Type !q to exit the program
+# Enter row: 0
+# Enter column: 1
+# This place is already occupied.
+# X|O| 
+# ------
+#  | | 
+# ------
+#  | | 
+# It is now X's turn.
+# Please enter your move in row and column.
+# So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.
+# Type !q to exit the program
+# Enter row: 1
+# Enter column: 0
+# This place is already occupied.
+# X|O| 
+# ------
+# X| | 
+# ------
+#  | | 
+# It is now O's turn.
+# Please enter your move in row and column.
+# So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.
+# Type !q to exit the program
+# Enter row: 0
+# Enter column: 2
+# This place is already occupied.
+# X|O|O
+# ------
+# X| | 
+# ------
+#  | | 
+# It is now X's turn.
+# Please enter your move in row and column.
+# So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.
+# Type !q to exit the program
+# Enter row: 2
+# Enter column: 0
+# This place is already occupied.
+# X|O|O
+# ------
+# X| | 
+# ------
+# X| | 
+# Congratulations,  X  YOU WON!
