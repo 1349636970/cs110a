@@ -1,3 +1,4 @@
+import sys
 #    Starting point for Extra Credit
 #    Tic Tac Toe game program
 
@@ -44,8 +45,13 @@ def takeTurn(board, nextPlayer):
     print("""It is now """+nextPlayer+"""'s turn.
 Please enter your move in row and column.
 So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.""")
-    row_position = check_variable_type("Enter row: ")
-    column_position = check_variable_type("Enter column: ")
+    print("Type !q to exit the program")
+    row_position = None
+    column_position = None
+    while check_current_position(row_position,column_position,board) is False:
+        row_position = check_variable_type("Enter row: ")
+        column_position = check_variable_type("Enter column: ")
+        print("This place is already occupied.")
     board[row_position][column_position] = nextPlayer
     if nextPlayer == 'X':
         nextPlayer = 'O'
@@ -53,20 +59,32 @@ So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be
         nextPlayer = 'X'
     return nextPlayer
 
-def check_variable_type(variable):
-    temp_variable = None
-    while temp_variable is None:
-        try:
-            temp_variable = int(input(variable))
-        except:
-            print("Please Enter a integer number")
-        else:
-            if temp_variable < 0 or temp_variable > 3:
-                temp_variable = None
-                print("Number should between 0 and 3")
-    return temp_variable
+def check_current_position(row_position,column_position,board):
+    if row_position is None or column_position is None or board[row_position][column_position] != " ":
+        return False
+    else:
+        return True
 
-    
+def check_variable_type(string):
+    temp_string = None
+    while temp_string is None or isinstance(temp_string,str):
+        temp_string = input(string)
+        try:
+            temp_string = int(temp_string)
+        except:
+            if is_exit(temp_string):
+                sys.exit()
+            else:
+                print("Please Enter a integer number")
+        else:
+            if temp_string < 0 or temp_string > 3:
+                temp_string = None
+                print("Number should between 0 and 3")
+    return temp_string
+
+def is_exit(arg):
+    if arg == '!q':
+        return True
 
 # ///////  winner  /////////
 # // Examines the board and returns one of the following:
