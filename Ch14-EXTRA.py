@@ -49,12 +49,14 @@ def takeTurn(board, nextPlayer):
 Please enter your move in row and column.
 So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be the top right.""")
     print("Type !q to exit the program")
-    row_position = None
-    column_position = None
-    while check_current_position(row_position,column_position,board) is False:
+    row_position = check_variable_type("Enter row: ")
+    column_position = check_variable_type("Enter column: ")
+    current_position_status = check_current_position(row_position,column_position,board)
+    while current_position_status is False:
+        print("This place is already occupied.")
         row_position = check_variable_type("Enter row: ")
         column_position = check_variable_type("Enter column: ")
-        print("This place is already occupied.")
+        current_position_status = check_current_position(row_position,column_position,board)
     board[row_position][column_position] = nextPlayer
     if nextPlayer == 'X':
         nextPlayer = 'O'
