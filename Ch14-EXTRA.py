@@ -53,7 +53,7 @@ So row: 0 and column: 0 would be the top left, and row: 0 and column: 2 would be
     column_position = check_variable_type("Enter column: ")
     current_position_status = check_current_position(row_position,column_position,board)
     while current_position_status is False:
-        print("This place is already occupied.")
+        print("This position is already occupied")
         row_position = check_variable_type("Enter row: ")
         column_position = check_variable_type("Enter column: ")
         current_position_status = check_current_position(row_position,column_position,board)
@@ -108,7 +108,7 @@ def winner(board):
         winner = horizontal
     elif vertical is not None:
         winner = vertical
-    elif vertical is not None:
+    elif slanted is not None:
         winner = slanted
     elif check_space(board):
         winner = ' '
@@ -126,7 +126,7 @@ def check_horizontal(board):
     count = 0
     for row in board:
         for column in range(1,len(row)):
-            if row[column-1] == row[column]:
+            if " " not in row and row[column-1] == row[column]:
                 count += 1
         if count == len(row):
             winner = row[0]
@@ -137,29 +137,44 @@ def check_slanted(board):
     winner = None
     count_top = 0
     count_bottom = 0
-    for row in range(1,len(board)):
-        for column in range(1,len(board)):
-            if board[row-1][column-1] == board[row][column]:
+    slanted_top = []
+    slanted_bottom = []
+    for row in range(len(board)):
+        for column in range(len(board)):
+            slanted_top.append(board[column][column])
+            slanted_bottom.append(board[(len(board)-1)-column][column])
+        for slanted_value in range(1,len(slanted_top)):
+            if " " not in slanted_top and slanted_top[slanted_value-1] == slanted_top[slanted_value]:
                 count_top += 1
-            elif board[row-1][len(board)-column] == board[row][len(board)-column-1]:
+        if count_top == len(board)-1:
+            winner = slanted_top[0]
+            break
+        for slanted_value in range(1,len(slanted_bottom)):
+            if " " not in slanted_bottom and slanted_bottom[slanted_value-1] == slanted_bottom[slanted_value]:
                 count_bottom += 1
-        if count_top == len(board):
-            winner = board[count_top][0]
-        elif count_bottom == len(board):
-            winner = board[count_bottom][0]
-        count_top = 0
+        if count_bottom == len(board)-1:
+            winner = slanted_bottom[0]
+            break
         count_bottom = 0
+        count_top = 0
+        slanted_bottom = []
+        slanted_top = []
     return winner
 
 def check_veritical(board):
-    winner = None
+    vertical_values = []
     count = 0
-    for row in range(1,len(board)):
-        for column in range(1,len(board)):
-            if board[row-1][column-1] == board[row][column-1]:
+    winner = None
+    for row in range(len(board)):
+        for column in range(len(board)):
+                vertical_values.append(board[column][row])
+        for vertical_value in range(1,len(vertical_values)):
+            if " " not in vertical_values and vertical_values[vertical_value-1] == vertical_values[vertical_value]:
                 count += 1
-        if count == len(board):
-            winner = board[count][0]
+        if count == len(board)-1:
+            winner = vertical_values[0]
+            break
+        vertical_values = []
         count = 0
     return winner
 # ///////  main  ////////
