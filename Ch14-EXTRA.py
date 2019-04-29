@@ -140,26 +140,25 @@ def check_slanted(board):
     count_bottom = 0
     slanted_top = []
     slanted_bottom = []
-    for row in range(len(board)):
-        for column in range(len(board)):
-            slanted_top.append(board[column][column])
-            slanted_bottom.append(board[(len(board)-1)-column][column])
+    for column in range(len(board)):
+        slanted_top.append(board[column][column])
+        slanted_bottom.append(board[(len(board)-1)-column][column])
+    if " " not in slanted_top:
         for slanted_value in range(1,len(slanted_top)):
-            if " " not in slanted_top and slanted_top[slanted_value-1] == slanted_top[slanted_value]:
+            if slanted_top[slanted_value-1] == slanted_top[slanted_value]:
                 count_top += 1
         if count_top == len(board)-1:
             winner = slanted_top[0]
-            break
+    if " " not in slanted_bottom:
         for slanted_value in range(1,len(slanted_bottom)):
-            if " " not in slanted_bottom and slanted_bottom[slanted_value-1] == slanted_bottom[slanted_value]:
+            if slanted_bottom[slanted_value-1] == slanted_bottom[slanted_value]:
                 count_bottom += 1
         if count_bottom == len(board)-1:
             winner = slanted_bottom[0]
-            break
-        count_bottom = 0
-        count_top = 0
-        slanted_bottom = []
-        slanted_top = []
+    count_bottom = 0
+    count_top = 0
+    slanted_bottom = []
+    slanted_top = []
     return winner
 
 def check_veritical(board):
