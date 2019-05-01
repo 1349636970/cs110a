@@ -20,8 +20,9 @@ def main():
             else:
                 print('congratulation, you win! Do one more!')
                 print('Guess number:',count)
+                count = 0
+                rant = randint(1,100)
             user_answer = None
-    count = 0
 main()
 
 # Guess a number(press !q exit): 20
